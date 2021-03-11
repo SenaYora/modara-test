@@ -1,3 +1,20 @@
+scalar Date
+
+type Brand {
+  name: String!,
+  createdAt: Date!,
+  type: [String!]!,
+  country: String!,
+  description: String,
+}
+
 type Query {
-  hello: String
+  brands: [Brand!]!,
+  brand(name: String!): Brand!
+}
+
+type Mutation {
+  createBrand(name: String!, createdAt: Date!, type: [String!]!, country: String!, description: String): Brand!
+  updateBrand(name: String!, createdAt: Date!, type: [String!]!, country: String!, description: String): Brand!
+  deleteBrand(name: String!): Brand!
 }
