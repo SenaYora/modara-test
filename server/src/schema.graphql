@@ -1,6 +1,7 @@
 scalar Date
 
 type Brand {
+  id: ID!,
   name: String!,
   createdAt: Date!,
   type: [String!]!,
@@ -15,6 +16,6 @@ type Query {
 
 type Mutation {
   createBrand(name: String!, createdAt: Date!, type: [String!]!, country: String!, description: String): Brand!
-  updateBrand(name: String!, createdAt: Date!, type: [String!]!, country: String!, description: String): Brand!
-  deleteBrand(name: String!): Brand!
+  updateBrand(id: ID!, name: String!, createdAt: Date!, type: [String!]!, country: String!, description: String): Brand!
+  deleteBrand(id: ID!): Brand!
 }
