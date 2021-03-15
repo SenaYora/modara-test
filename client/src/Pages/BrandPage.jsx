@@ -9,9 +9,9 @@ import DialogContent from '@material-ui/core/DialogContent'
 import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 
-import AddBrandComponent from '../Components/Brands/AddBrand'
-import Brand from '../Components/Brands/Brand'
-import Schema from "../Schema/schema.js"
+import AddBrandComponent from '../Components/AddBrandDialog/AddBrandButton'
+import Brand from '../Components/BrandCard/Brand'
+import { Schema } from "../Schema/schema.js"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const styles = {

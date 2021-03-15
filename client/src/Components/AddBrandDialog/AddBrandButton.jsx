@@ -10,7 +10,8 @@ import DialogTitle from '@material-ui/core/DialogTitle'
 import TextField from '@material-ui/core/TextField'
 import Checkbox from '@material-ui/core/Checkbox'
 
-import Schema from "../../Schema/schema.js"
+import { Schema } from '../../Schema/schema.js'
+import Types from '../../json/types.json'
 
 const styles = {
   main: {
@@ -38,52 +39,23 @@ const styles = {
   }
 }
 
-const Types = [
-  {
-    id: "shoes",
-    label: "Shoes",
-    checked: false,
-  },
-  {
-    id: "clothes",
-    label: "Clothes",
-    checked: false,
-  },
-  {
-    id: "bags",
-    label: "Bags",
-    checked: false,
-  },
-  {
-    id: "hats",
-    label: "Hats",
-    checked: false,
-  },
-  {
-    id: "accessories",
-    label: "Accessories",
-    checked: false,
-  }
-]
-
 function AddBrandComponent({ classes }) {
   const [open, setOpen] = useState(false)
-  const [types, setTypes] = useState(Types)
+  const [types, setTypes] = useState([ ...Types ])
 
-  const publishForm = (name, type, country, description) => {
-    fetch(`http://localhost:4000/graphql?query=${Schema.addBrand(name, new Date(), type, country, description)}`, { method: 'POST' })
-  }
+  // const publishForm = (name, type, country, description) => {
+  //   fetch(`http://localhost:4000/graphql?query=${Schema.addBrand(name, new Date(), type, country, description)}`, { method: 'POST' })
+  // }
 
   const handleClose = () => {
     setOpen(false)
   }
 
-  const handleChange = (type) => {
-    const index = types.findIndex(e => e.id === type.id)
-    setTypes(prev => {
-      prev[index].checked = true
-      return prev
-    })
+  const handleChange = (index) => {
+    const newTypes = [ ...types ]
+
+    newTypes[index].checked = !newTypes[index].checked
+    setTypes(newTypes)
   }
 
   return (
@@ -96,23 +68,16 @@ function AddBrandComponent({ classes }) {
         <DialogContent>
           <DialogContentText>
             To add a new brand, you have to fulfill few informations about the brand
-            </DialogContentText>
+          </DialogContentText>
           <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Name"
-            type="text"
-            fullWidth
-            required
+            autoFocus margin="dense"
+            id="name" label="Name"
+            type="text" fullWidth required
           />
           <TextField
             margin="dense"
-            id="desciption"
-            label="Desciption"
-            type="text"
-            fullWidth
-            multiline
+            id="desciption" label="Desciption"
+            type="text" fullWidth multiline
           />
           <TextField
             margin="dense"

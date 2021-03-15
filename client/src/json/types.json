@@ -1,0 +1,27 @@
+[
+    {
+      "id": "shoes",
+      "label": "Shoes",
+      "checked": false
+    },
+    {
+      "id": "clothes",
+      "label": "Clothes",
+      "checked": false
+    },
+    {
+      "id": "bags",
+      "label": "Bags",
+      "checked": false
+    },
+    {
+      "id": "hats",
+      "label": "Hats",
+      "checked": false
+    },
+    {
+      "id": "accessories",
+      "label": "Accessories",
+      "checked": false
+    }
+]
