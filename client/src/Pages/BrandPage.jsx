@@ -56,6 +56,10 @@ function BrandPage({ classes }) {
     setDeletion(-1)
   }
 
+  const addBrand = (newBrand) => {
+    setBrands(prev => [...prev, newBrand])
+  }
+
   return (
     <div className={classes.main}>
       {!brands && (
@@ -77,7 +81,7 @@ function BrandPage({ classes }) {
               onDelete={setDeletion}
             />
           )}
-          <AddBrand />
+          <AddBrand onAdd={addBrand} />
         </div>
       }
       <Dialog
