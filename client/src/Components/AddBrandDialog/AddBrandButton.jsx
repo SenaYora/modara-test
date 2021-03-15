@@ -1,7 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { withStyles } from '@material-ui/core'
-
-import Types from '../../json/types.json'
 
 const styles = {
   main: {
@@ -16,16 +14,14 @@ const styles = {
     width: 80,
     height: 80,
     outline: 'none',
+    border: '2px solid #000',
+    '&:active': {
+      border: '1px solid #000b'
+    }
   },
   plusText: {
     fontSize: 50,
     fontWeight: 900
-  },
-  checkboxContainer: {
-    display: 'flex'
-  },
-  checkbox: {
-    marginRight: 15
   }
 }
 
